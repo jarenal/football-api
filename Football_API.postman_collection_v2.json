@@ -1,0 +1,1132 @@
+{
+	"info": {
+		"_postman_id": "62b6afdd-2135-4b00-8bed-af90a927303b",
+		"name": "Football API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Endpoints",
+			"description": "",
+			"item": [
+				{
+					"name": "/api/leagues/{id}",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlBlcGUgTHVpcyIsImlhdCI6MTUxNjIzOTAyMn0.tsFyhlsF_aaa78L7zvBGcldjDCOuvmzblFi7nRKd88o"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"url": "{{FOOTBALL_API_HOST}}/api/leagues/52962395-a8d6-11e8-8105-0800279bf22e"
+					},
+					"response": []
+				},
+				{
+					"name": "/api/leagues/{id}",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlBlcGUgTHVpcyIsImlhdCI6MTUxNjIzOTAyMn0.tsFyhlsF_aaa78L7zvBGcldjDCOuvmzblFi7nRKd88o"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": "{{FOOTBALL_API_HOST}}/api/leagues/52962395-a8d6-11e8-8105-0800279bf22e"
+					},
+					"response": []
+				},
+				{
+					"name": "/api/leagues/{leagues_id}/teams",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlBlcGUgTHVpcyIsImlhdCI6MTUxNjIzOTAyMn0.tsFyhlsF_aaa78L7zvBGcldjDCOuvmzblFi7nRKd88o"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Team 0217",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "strip[]",
+									"value": "red",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "strip[]",
+									"value": "white",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "league_id",
+									"value": "52962395-a8d6-11e8-8105-0800279bf22e",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{FOOTBALL_API_HOST}}/api/leagues/52962395-a8d6-11e8-8105-0800279bf22e/teams"
+					},
+					"response": []
+				},
+				{
+					"name": "/api/leagues/{league_id}/teams/{team_id}",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlBlcGUgTHVpcyIsImlhdCI6MTUxNjIzOTAyMn0.tsFyhlsF_aaa78L7zvBGcldjDCOuvmzblFi7nRKd88o"
+							}
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Real Madrid C.F.",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "strip[]",
+									"value": "green",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "strip[]",
+									"value": "yellow",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "league_id",
+									"value": "52962395-a8d6-11e8-8105-0800279bf22e",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{FOOTBALL_API_HOST}}/api/leagues/52962395-a8d6-11e8-8105-0800279bf22e/teams/52a27a19-a8d6-11e8-8105-0800279bf22e"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tests",
+			"description": "",
+			"item": [
+				{
+					"name": "GET",
+					"description": "",
+					"item": [
+						{
+							"name": "testGetSuccess",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "fd4b3d5e-0e38-4336-b148-0621f405ad30",
+										"type": "text/javascript",
+										"exec": [
+											"pm.test(\"Response status is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"Check response data\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.id).to.eql('52962395-a8d6-11e8-8105-0800279bf22e');",
+											"    pm.expect(jsonData.name).to.eql('LaLiga Santander');",
+											"});"
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlBlcGUgTHVpcyIsImlhdCI6MTUxNjIzOTAyMn0.tsFyhlsF_aaa78L7zvBGcldjDCOuvmzblFi7nRKd88o"
+									}
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "",
+										"value": "",
+										"disabled": true
+									}
+								],
+								"body": {},
+								"url": "{{FOOTBALL_API_HOST}}/api/leagues/52962395-a8d6-11e8-8105-0800279bf22e"
+							},
+							"response": []
+						},
+						{
+							"name": "testGetInvalidToken",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "3c3fb0b1-448d-455a-9fe1-bed5be4fc960",
+										"type": "text/javascript",
+										"exec": [
+											"pm.test(\"Response status is 403\", function () {",
+											"    pm.response.to.have.status(403);",
+											"});",
+											"",
+											"pm.test(\"Check response data\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error.code).to.eql(403);",
+											"    pm.expect(jsonData.error.message).to.eql('Forbidden');",
+											"});"
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlBlcGUgTHVpcyIsImlhdCI6MTUxNjIzOTAyMn0.tsFyhlsF_aaa78L7zvBGcldjDCOuvmzblFi7nRKd88"
+									}
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "",
+										"value": "",
+										"disabled": true
+									}
+								],
+								"body": {},
+								"url": "{{FOOTBALL_API_HOST}}/api/leagues/52962395-a8d6-11e8-8105-0800279bf22e"
+							},
+							"response": []
+						},
+						{
+							"name": "testGetNotFound",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "9c0ea452-e707-4ef9-9ea0-9e6e5cffa8cb",
+										"type": "text/javascript",
+										"exec": [
+											"pm.test(\"Response status is 404\", function () {",
+											"    pm.response.to.have.status(404);",
+											"});",
+											"",
+											"pm.test(\"Check response data\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.message).to.eql('The given league doesn\\'t exist');",
+											"});"
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlBlcGUgTHVpcyIsImlhdCI6MTUxNjIzOTAyMn0.tsFyhlsF_aaa78L7zvBGcldjDCOuvmzblFi7nRKd88o"
+									}
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "",
+										"value": "",
+										"disabled": true
+									}
+								],
+								"body": {},
+								"url": "{{FOOTBALL_API_HOST}}/api/leagues/333"
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "DELETE",
+					"description": "",
+					"item": [
+						{
+							"name": "testDeleteSuccess",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "4a51dc5a-5b63-4459-9184-c2c21459a8d5",
+										"type": "text/javascript",
+										"exec": [
+											"pm.test(\"Response status is 204\", function () {",
+											"    pm.response.to.have.status(204);",
+											"});"
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlBlcGUgTHVpcyIsImlhdCI6MTUxNjIzOTAyMn0.tsFyhlsF_aaa78L7zvBGcldjDCOuvmzblFi7nRKd88o"
+									}
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {},
+								"url": "{{FOOTBALL_API_HOST}}/api/leagues/52962395-a8d6-11e8-8105-0800279bf22e"
+							},
+							"response": []
+						},
+						{
+							"name": "testDeleteInvalidToken",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "3762e744-537d-4fb7-b03f-e9c513d3f4a3",
+										"type": "text/javascript",
+										"exec": [
+											"pm.test(\"Response status is 403\", function () {",
+											"    pm.response.to.have.status(403);",
+											"});",
+											"",
+											"pm.test(\"Check response data\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error.code).to.eql(403);",
+											"    pm.expect(jsonData.error.message).to.eql('Forbidden');",
+											"});"
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlBlcGUgTHVpcyIsImlhdCI6MTUxNjIzOTAyMn0.tsFyhlsF_aaa78L7zvBGcldjDCOuvmzblFi7nRKd88"
+									}
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {},
+								"url": "{{FOOTBALL_API_HOST}}/api/leagues/52962395-a8d6-11e8-8105-0800279bf22e"
+							},
+							"response": []
+						},
+						{
+							"name": "testDeleteNotFound",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "9dc7ecfd-a792-4c32-8b36-e76f87dc3e4e",
+										"type": "text/javascript",
+										"exec": [
+											"pm.test(\"Response status is 404\", function () {",
+											"    pm.response.to.have.status(404);",
+											"});",
+											"",
+											"pm.test(\"Check response data\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.message).to.eql('The given league doesn\\'t exist');",
+											"});"
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlBlcGUgTHVpcyIsImlhdCI6MTUxNjIzOTAyMn0.tsFyhlsF_aaa78L7zvBGcldjDCOuvmzblFi7nRKd88o"
+									}
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {},
+								"url": "{{FOOTBALL_API_HOST}}/api/leagues/333"
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "POST",
+					"description": "",
+					"item": [
+						{
+							"name": "testPostSuccess",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "143f7928-9f60-4dd2-b396-05535e435a96",
+										"type": "text/javascript",
+										"exec": [
+											"pm.test(\"Response status is 201\", function () {",
+											"    pm.response.to.have.status(201);",
+											"});",
+											"",
+											"pm.test(\"Check response data\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.message).to.eql('Team created successfully');",
+											"});"
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlBlcGUgTHVpcyIsImlhdCI6MTUxNjIzOTAyMn0.tsFyhlsF_aaa78L7zvBGcldjDCOuvmzblFi7nRKd88o"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Team 0217",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "strip[]",
+											"value": "red",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "strip[]",
+											"value": "white",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "league_id",
+											"value": "52962395-a8d6-11e8-8105-0800279bf22e",
+											"description": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": "{{FOOTBALL_API_HOST}}/api/leagues/52962395-a8d6-11e8-8105-0800279bf22e/teams"
+							},
+							"response": []
+						},
+						{
+							"name": "testPostInvalidToken",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "23e28188-f769-4d48-88ed-7ef2288c5261",
+										"type": "text/javascript",
+										"exec": [
+											"pm.test(\"Response status is 403\", function () {",
+											"    pm.response.to.have.status(403);",
+											"});",
+											"",
+											"pm.test(\"Check response data\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error.code).to.eql(403);",
+											"    pm.expect(jsonData.error.message).to.eql('Forbidden');",
+											"});"
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlBlcGUgTHVpcyIsImlhdCI6MTUxNjIzOTAyMn0.tsFyhlsF_aaa78L7zvBGcldjDCOuvmzblFi7nRKd88"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Team 0217",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "strip[]",
+											"value": "red",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "strip[]",
+											"value": "white",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "league_id",
+											"value": "52962395-a8d6-11e8-8105-0800279bf22e",
+											"description": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": "{{FOOTBALL_API_HOST}}/api/leagues/52962395-a8d6-11e8-8105-0800279bf22e/teams"
+							},
+							"response": []
+						},
+						{
+							"name": "testPostNameRequired",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "c8665173-87ae-47c4-8a8f-bbef540305f1",
+										"type": "text/javascript",
+										"exec": [
+											"pm.test(\"Response status is 400\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});",
+											"",
+											"pm.test(\"Check response data\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.message).to.eql('name is required');",
+											"});"
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlBlcGUgTHVpcyIsImlhdCI6MTUxNjIzOTAyMn0.tsFyhlsF_aaa78L7zvBGcldjDCOuvmzblFi7nRKd88o"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Team 0217",
+											"description": "",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "strip[]",
+											"value": "red",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "strip[]",
+											"value": "white",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "league_id",
+											"value": "52962395-a8d6-11e8-8105-0800279bf22e",
+											"description": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": "{{FOOTBALL_API_HOST}}/api/leagues/52962395-a8d6-11e8-8105-0800279bf22e/teams"
+							},
+							"response": []
+						},
+						{
+							"name": "testPostStripRequired",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "8f4e7580-329d-408b-b458-01160243e208",
+										"type": "text/javascript",
+										"exec": [
+											"pm.test(\"Response status is 400\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});",
+											"",
+											"pm.test(\"Check response data\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.message).to.eql('strip is required');",
+											"});"
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlBlcGUgTHVpcyIsImlhdCI6MTUxNjIzOTAyMn0.tsFyhlsF_aaa78L7zvBGcldjDCOuvmzblFi7nRKd88o"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Team 0217",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "strip[]",
+											"value": "red",
+											"description": "",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "strip[]",
+											"value": "white",
+											"description": "",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "league_id",
+											"value": "52962395-a8d6-11e8-8105-0800279bf22e",
+											"description": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": "{{FOOTBALL_API_HOST}}/api/leagues/52962395-a8d6-11e8-8105-0800279bf22e/teams"
+							},
+							"response": []
+						},
+						{
+							"name": "testPostLeagueNotExist",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "64fa7702-d337-4c8d-813e-d955b037bbe3",
+										"type": "text/javascript",
+										"exec": [
+											"pm.test(\"Response status is 404\", function () {",
+											"    pm.response.to.have.status(404);",
+											"});",
+											"",
+											"pm.test(\"Check response data\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.message).to.eql('The given league doesn\\'t exist');",
+											"});"
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlBlcGUgTHVpcyIsImlhdCI6MTUxNjIzOTAyMn0.tsFyhlsF_aaa78L7zvBGcldjDCOuvmzblFi7nRKd88o"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Team 0217",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "strip[]",
+											"value": "red",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "strip[]",
+											"value": "white",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "league_id",
+											"value": "52962395-a8d6-11e8-8105-0800279bf22e",
+											"description": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": "{{FOOTBALL_API_HOST}}/api/leagues/333/teams"
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "PUT",
+					"description": "",
+					"item": [
+						{
+							"name": "testPutSuccess",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "669790d4-0771-4ad9-9205-ae1f3f3e371a",
+										"type": "text/javascript",
+										"exec": [
+											"pm.test(\"Response status is 204\", function () {",
+											"    pm.response.to.have.status(204);",
+											"});"
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlBlcGUgTHVpcyIsImlhdCI6MTUxNjIzOTAyMn0.tsFyhlsF_aaa78L7zvBGcldjDCOuvmzblFi7nRKd88o"
+									}
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "Real Madrid C.F.",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "strip[]",
+											"value": "green",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "strip[]",
+											"value": "yellow",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "league_id",
+											"value": "52962395-a8d6-11e8-8105-0800279bf22e",
+											"description": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": "{{FOOTBALL_API_HOST}}/api/leagues/52962395-a8d6-11e8-8105-0800279bf22e/teams/52a27a19-a8d6-11e8-8105-0800279bf22e"
+							},
+							"response": []
+						},
+						{
+							"name": "testPutInvalidToken",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "16f0265c-47b8-42db-adc1-fcaeeca156d5",
+										"type": "text/javascript",
+										"exec": [
+											"pm.test(\"Response status is 403\", function () {",
+											"    pm.response.to.have.status(403);",
+											"});",
+											"",
+											"pm.test(\"Check response data\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error.code).to.eql(403);",
+											"    pm.expect(jsonData.error.message).to.eql('Forbidden');",
+											"});"
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlBlcGUgTHVpcyIsImlhdCI6MTUxNjIzOTAyMn0.tsFyhlsF_aaa78L7zvBGcldjDCOuvmzblFi7nRKd88"
+									}
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "Real Madrid C.F.",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "strip[]",
+											"value": "green",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "strip[]",
+											"value": "yellow",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "league_id",
+											"value": "52962395-a8d6-11e8-8105-0800279bf22e",
+											"description": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": "{{FOOTBALL_API_HOST}}/api/leagues/52962395-a8d6-11e8-8105-0800279bf22e/teams/52a27a19-a8d6-11e8-8105-0800279bf22e"
+							},
+							"response": []
+						},
+						{
+							"name": "testPutNameRequired",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "faee1783-0201-452d-bb4f-2ff79c622570",
+										"type": "text/javascript",
+										"exec": [
+											"pm.test(\"Response status is 400\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});",
+											"",
+											"pm.test(\"Check response data\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.message).to.eql('name is required');",
+											"});"
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlBlcGUgTHVpcyIsImlhdCI6MTUxNjIzOTAyMn0.tsFyhlsF_aaa78L7zvBGcldjDCOuvmzblFi7nRKd88o"
+									}
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "Real Madrid C.F.",
+											"description": "",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "strip[]",
+											"value": "green",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "strip[]",
+											"value": "yellow",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "league_id",
+											"value": "52962395-a8d6-11e8-8105-0800279bf22e",
+											"description": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": "{{FOOTBALL_API_HOST}}/api/leagues/52962395-a8d6-11e8-8105-0800279bf22e/teams/52a27a19-a8d6-11e8-8105-0800279bf22e"
+							},
+							"response": []
+						},
+						{
+							"name": "testPutStripRequired",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "bb71facd-f906-4dc0-8b7c-8c189f049802",
+										"type": "text/javascript",
+										"exec": [
+											"pm.test(\"Response status is 400\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});",
+											"",
+											"pm.test(\"Check response data\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.message).to.eql('strip is required');",
+											"});"
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlBlcGUgTHVpcyIsImlhdCI6MTUxNjIzOTAyMn0.tsFyhlsF_aaa78L7zvBGcldjDCOuvmzblFi7nRKd88o"
+									}
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "Real Madrid C.F.",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "strip[]",
+											"value": "green",
+											"description": "",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "strip[]",
+											"value": "yellow",
+											"description": "",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "league_id",
+											"value": "52962395-a8d6-11e8-8105-0800279bf22e",
+											"description": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": "{{FOOTBALL_API_HOST}}/api/leagues/52962395-a8d6-11e8-8105-0800279bf22e/teams/52a27a19-a8d6-11e8-8105-0800279bf22e"
+							},
+							"response": []
+						},
+						{
+							"name": "testPutLeagueNotExist",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "11f4fa02-475f-402b-9669-ad1c6978ab1b",
+										"type": "text/javascript",
+										"exec": [
+											"pm.test(\"Response status is 404\", function () {",
+											"    pm.response.to.have.status(404);",
+											"});",
+											"",
+											"pm.test(\"Check response data\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.message).to.eql('The given league doesn\\'t exist');",
+											"});"
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlBlcGUgTHVpcyIsImlhdCI6MTUxNjIzOTAyMn0.tsFyhlsF_aaa78L7zvBGcldjDCOuvmzblFi7nRKd88o"
+									}
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "Real Madrid C.F.",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "strip[]",
+											"value": "green",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "strip[]",
+											"value": "yellow",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "league_id",
+											"value": "52962395-a8d6-11e8-8105-0800279bf22e",
+											"description": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": "{{FOOTBALL_API_HOST}}/api/leagues/333/teams/52a27a19-a8d6-11e8-8105-0800279bf22e"
+							},
+							"response": []
+						},
+						{
+							"name": "testPutTeamNotExist",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "71bf4367-a82a-4bf0-bebf-8eba6de20763",
+										"type": "text/javascript",
+										"exec": [
+											"pm.test(\"Response status is 404\", function () {",
+											"    pm.response.to.have.status(404);",
+											"});",
+											"",
+											"pm.test(\"Check response data\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.message).to.eql('The given team doesn\\'t exist');",
+											"});"
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlBlcGUgTHVpcyIsImlhdCI6MTUxNjIzOTAyMn0.tsFyhlsF_aaa78L7zvBGcldjDCOuvmzblFi7nRKd88o"
+									}
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "Real Madrid C.F.",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "strip[]",
+											"value": "green",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "strip[]",
+											"value": "yellow",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "league_id",
+											"value": "52962395-a8d6-11e8-8105-0800279bf22e",
+											"description": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": "{{FOOTBALL_API_HOST}}/api/leagues/52962395-a8d6-11e8-8105-0800279bf22e/teams/333"
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		}
+	]
+}

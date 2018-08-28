@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- https://phpunit.de/manual/current/en/appendixes.configuration.html -->
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/4.8/phpunit.xsd"
+         backupGlobals="false"
+         colors="true"
+         bootstrap="vendor/autoload.php"
+>
+    <php>
+        <ini name="error_reporting" value="16383" />
+        <server name="KERNEL_CLASS" value="AppKernel" />
+        <env name="VALID_TOKEN" value="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlBlcGUgTHVpcyIsImlhdCI6MTUxNjIzOTAyMn0.tsFyhlsF_aaa78L7zvBGcldjDCOuvmzblFi7nRKd88o"/>
+        <env name="INVALID_TOKEN" value="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCBJbnZhbGlkIn0.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkFudG9uaW8iLCJpYXQiOjE1MTYyMzkwMjJ9.HajI14Tqg4rBVbLiB92CYKPOAQTpe5fs9wBS0QlxlyQ"/>
+    </php>
+
+    <testsuites>
+        <testsuite name="Football API tests">
+            <directory>tests</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist>
+            <directory>src</directory>
+            <exclude>
+                <directory>src/*Bundle/Resources</directory>
+                <directory>src/*/*Bundle/Resources</directory>
+                <directory>src/*/Bundle/*Bundle/Resources</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+</phpunit>
